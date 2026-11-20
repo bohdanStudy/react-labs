@@ -1,3 +1,4 @@
+import { track } from '../analytics'
 /**
  * Компонент вищого порядку (HOC): отримує компонент і повертає новий, який
  * рендерить `Component` з тими самими props, а під час кліку ще й надсилає
@@ -13,6 +14,18 @@
  * Поки що повертає `Component` без змін. Вимоги — у тестах
  * tests/withAnalytics.test.jsx.
  */
-export function withAnalytics(Component) {
-  return Component
+export function withAnalytics(Component, event) {
+  function WithAnalytics(props) {
+    const { analyticsData, onClick, ...restProps } = props
+
+    function handleClick(e) {
+      track(event, analyticsData)
+      onClick?.(e)
+    }
+
+    return <Component {...restProps} onClick={handleClick} />
+  }
+  const name = Component.displayName || Component.name || 'Component'
+  WithAnalytics.displayName = `withAnalytics(${name})`
+  return WithAnalytics
 }
