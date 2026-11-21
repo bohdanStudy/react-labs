@@ -16,7 +16,7 @@
 | За типом файлів (§4.3)     | 4   | src/hooks, src/components, src/pages, src/store                                                          |
 | За маршрутами (§4.4)       | 5   | src/app, src/shared/components, src/shared/hooks, src/routes/cart, src/shared/store                      |
 | За функціональністю (§4.5) | 5   | src/app, src/app/routes, src/features/cart/components, src/features/cart/hooks, src/features/cart/stores |
-| FSD (§4.6)                 |     |                                                                                                          |
+| FSD (§4.6)                 | 5   | src/app, src/pages/cart/ui, src/features/cart/ui, src/entities/cart/model, src/entities/cart/ui          |
 | Пакет (§4.9)               |     |                                                                                                          |
 
 ## Вибір структури
