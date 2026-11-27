@@ -15,7 +15,7 @@
 | Компонент        | Після §4.4 | Після §4.5 |
 | ---------------- | ---------- | ---------- |
 | `App`            | так        | ні         |
-| `QueueProvider`  | ні         | так        |
+| `QueueProvider`  | -          | так        |
 | `OrderComposer`  | так        | ні         |
 | `HistoryButtons` | так        | так        |
 | `OrderDetails`   | так        | так        |
