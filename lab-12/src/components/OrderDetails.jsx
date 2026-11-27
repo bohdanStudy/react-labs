@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { use, useEffect, useRef } from 'react'
 import { flushSync } from 'react-dom'
 import { describeItem, priceOf } from '../data/menu.js'
+import { QueueDispatchContext } from '../model/queueContext.js'
 
 const statusTitle = {
   new: 'Нове',
@@ -13,7 +14,7 @@ const statusTitle = {
  * Панель «Деталі замовлення»: напої замовлення й поле для імені гостя.
  * Без замовлення (order — null чи undefined) не показує нічого.
  */
-export default function OrderDetails({ order, dispatch, onClose }) {
+export default function OrderDetails({ order, onClose }) {
   const headingRef = useRef(null)
   const orderId = order?.id
 
@@ -58,7 +59,7 @@ export default function OrderDetails({ order, dispatch, onClose }) {
       <RenameForm
         key={`${order.id}:${order.customer.name}`}
         customer={order.customer}
-        dispatch={dispatch}
+        dispatch={use(QueueDispatchContext)}
         onSaved={() => headingRef.current.focus()}
       />
     </section>
